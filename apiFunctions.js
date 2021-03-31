@@ -1,15 +1,17 @@
 const getRandomPuzzle = () => {
   const answerKey = possibleWordKeys[Math.floor(Math.random()*possibleWordKeys.length)];
-  const answerLetter = answerKey[Math.floor(Math.random()*answerKey.length)]
+  const requiredLetter = answerKey[Math.floor(Math.random()*answerKey.length)]
   const answerWords = [];
   const answerKeyArray = answerKey.split('');
-  answerKeyArray.splice(answerKeyArray.indexOf(answerLetter), 1);
+  answerKeyArray.splice(answerKeyArray.indexOf(requiredLetter), 1);
+  const answerLetters = answerKeyArray.join('');
   const comboArray = getCombinations(answerKeyArray);
   comboArray.forEach(combo => {
-    const comboWords = allKeys[(answerLetter + combo).split('').sort().join('')];
+    const comboWords = allKeys[(requiredLetter + combo).split('').sort().join('')];
     Array.prototype.push.apply(answerWords, comboWords);
   })
-  return {answerKey, answerLetter, answerWords};
+
+  return {answerLetters, requiredLetter, answerWords};
 }
 
 const getCombinations = (chars) => {
