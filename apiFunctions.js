@@ -33,3 +33,5 @@ ThunkableWebviewerExtension.receiveMessageWithReturnValue(function(message, call
     callback(null);
   }
 });
+
+ThunkableWebviewerExtension.postMessage('pageLoaded');
