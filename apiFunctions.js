@@ -23,3 +23,11 @@ const getCombinations = (chars) => {
   f('', chars);
   return result;
 }
+
+ThunkableWebviewerExtension.receiveMessageWithReturnValue(function(message, callback) {
+  if (message === 'getRandomPuzzle') {
+    callback(getRandomPuzzle());
+  } else {
+    callback(null);
+  }
+});
