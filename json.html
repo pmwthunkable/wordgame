@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+    <script src="wordKeys.js"></script>
+    <script src="apiFunctions.js"></script>
+    <script src="lib/json-viewer/json-viewer.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/json-viewer/json-viewer.css">
+  </head>
+  <body>
+    <button onclick="clickHandler()">Get Random Puzzle</button>
+    <div id="json"></div>
+  </body>
+  <script>
+    var jsonViewer = new JSONViewer();
+    document.querySelector("#json").appendChild(jsonViewer.getContainer());
+    var clickHandler = function() {
+      jsonViewer.showJSON(getRandomPuzzle())
+    }
+  </script>
+</html>
