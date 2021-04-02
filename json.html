@@ -15,7 +15,8 @@
     var jsonViewer = new JSONViewer();
     document.querySelector("#json").appendChild(jsonViewer.getContainer());
     var clickHandler = function() {
-      jsonViewer.showJSON(getRandomPuzzle())
+      jsonViewer.showJSON(getRandomPuzzle());
     }
+    jsonViewer.showJSON(getRandomPuzzle());
   </script>
 </html>
